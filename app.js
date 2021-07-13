@@ -1,6 +1,3 @@
-console.log("Testingß")
-console.log("1111")
-
 // fetch("https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/GetLucky%2311560/battle", {
 // 	//"method": "GET",
 // 	"headers": {
