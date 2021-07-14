@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import { setSearch } from "./mainPageStore";
 import { connect } from "react-redux";
+import "./App.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Card,
+  Button,
+  InputGroup,
+  FormControl,
+  Dropdown,
+  Container,
+  Row,
+  Col,
+} from "react-bootstrap";
+
 import "./App.css";
 
 class App extends Component {
@@ -43,15 +56,48 @@ class App extends Component {
         <header className="App-header">
           <div>DubStats</div>
           <div className="input">
-            <input
-              type="text"
-              className="inputValue"
-              placeholder="Enter username"
-              onChange={this.handleChange}
-            />
-            <button type="button" onClick={this.handleClick} id="submit">
-              button
-            </button>
+            <br></br>
+            <Card bg="light" className="searchBar">
+              <InputGroup className="mb-3">
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    Platform
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1">Activision</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2">BattleNet</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3">PSN</Dropdown.Item>
+                    <Dropdown.Item href="#/action-4">Xbox</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+                <FormControl
+                  placeholder="Enter Username"
+                  aria-label="Recipient's username"
+                  aria-describedby="basic-addon2"
+                  onChange={this.handleChange}
+                />
+                <Button
+                  variant="outline-secondary"
+                  type="button"
+                  onClick={this.handleClick}
+                  id="submit"
+                >
+                  Button
+                </Button>
+              </InputGroup>
+            </Card>
+
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src="holder.js/100px180" />
+              <Card.Body>
+                <Card.Title>Card Title</Card.Title>
+                <Card.Text>
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
           </div>
         </header>
       </div>
