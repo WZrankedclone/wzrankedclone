@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { setSearch } from "./mainPageStore";
+import { setSearch, setToggle } from "./mainPageStore";
 import { connect } from "react-redux";
-import "./App.css"
+import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Card,
@@ -9,9 +9,6 @@ import {
   InputGroup,
   FormControl,
   Dropdown,
-  Container,
-  Row,
-  Col,
 } from "react-bootstrap";
 
 import "./App.css";
@@ -21,6 +18,7 @@ class App extends Component {
     super();
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.pHandleChange = this.pHandleChange.bind(this);
   }
   componentDidMount() {}
 
@@ -28,11 +26,22 @@ class App extends Component {
     this.props.setSearch(e.target.value);
   }
 
+  async pHandleChange(p) {
+    this.props.setToggle(p.target.innerHTML);
+  }
+
   async handleClick(e) {
     e.preventDefault();
-    console.log("this is state", this.props.searchValue);
+    let platform = "battle";
+    if (this.props.toggleValue === "PSN") {
+      platform = "psn"
+    } else if (this.props.toggleValue === "Xbox") {
+      platform = "xbl"
+    }
+
+
     fetch(
-      `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${this.props.searchValue}/battle`,
+      `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${this.props.searchValue}/${platform}`,
       {
         method: "GET",
         headers: {
@@ -50,7 +59,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("this.props", this.props);
     return (
       <div className="App">
         <header className="App-header">
@@ -61,13 +69,27 @@ class App extends Component {
               <InputGroup className="mb-3">
                 <Dropdown>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    Platform
+                    {this.props.toggleValue === "" ? "BattleNET" : this.props.toggleValue}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1">Activision</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2">BattleNet</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3">PSN</Dropdown.Item>
-                    <Dropdown.Item href="#/action-4">Xbox</Dropdown.Item>
+                    <Dropdown.Item
+                      href="#/action-1"
+                      onClick={this.pHandleChange}
+                    >
+                      BattleNET
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      href="#/action-2"
+                      onClick={this.pHandleChange}
+                    >
+                      PSN
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      href="#/action-3"
+                      onClick={this.pHandleChange}
+                    >
+                      Xbox
+                    </Dropdown.Item>
                   </Dropdown.Menu>
                 </Dropdown>
                 <FormControl
@@ -108,6 +130,7 @@ class App extends Component {
 const mapState = (state) => {
   return {
     searchValue: state.mainPage.searchValue,
+    toggleValue: state.mainPage.toggleValue,
   };
 };
 
@@ -115,6 +138,9 @@ const mapDispatch = (dispatch) => {
   return {
     setSearch: (sVal) => {
       dispatch(setSearch(sVal));
+    },
+    setToggle: (pVal) => {
+      dispatch(setToggle(pVal));
     },
   };
 };
