@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { setSearch, setToggle } from "./mainPageStore";
+import { setSearch, setToggle, getStats } from "./mainPageStore";
 import { connect } from "react-redux";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -32,6 +32,8 @@ class App extends Component {
 
   async handleClick(e) {
     e.preventDefault();
+    console.log("HandleClick Worked")
+    let fData
     let platform = "battle";
     if (this.props.toggleValue === "PSN") {
       platform = "psn"
@@ -39,8 +41,7 @@ class App extends Component {
       platform = "xbl"
     }
 
-
-    fetch(
+    await fetch(
       `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${this.props.searchValue}/${platform}`,
       {
         method: "GET",
@@ -52,13 +53,19 @@ class App extends Component {
       }
     )
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {console.log("Our Fetched Data",data); fData = data; console.log("OUR ACTION CREATOR INVOKED", getStats(data)); return getStats(data) })
+      // .then((asd) => console.log("stats--->" ,asd, "state---->",this.props.THEstats))
+      // .then((data) =>console.log(456,data))
       .catch((err) => {
         console.error(err);
       });
+    console.log("Our Data outside", fData)
+    getStats(fData)
+    console.log("---->", "end of handle Click")
   }
 
   render() {
+    console.log("state---->",this.props.THEstats)
     return (
       <div className="App">
         <header className="App-header">
@@ -110,14 +117,35 @@ class App extends Component {
             </Card>
 
             <Card style={{ width: "18rem" }}>
-              <Card.Img variant="top" src="holder.js/100px180" />
               <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>K/d</Card.Title>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  99.56
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+              </Card.Body>
+            </Card>
+            <Card style={{ width: "18rem" }}>
+              <Card.Body>
+                <Card.Title>K/d</Card.Title>
+                <Card.Text>
+                  99.56
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card style={{ width: "18rem" }}>
+              <Card.Body>
+                <Card.Title>K/d</Card.Title>
+                <Card.Text>
+                  99.56
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card style={{ width: "18rem" }}>
+              <Card.Body>
+                <Card.Title>K/d</Card.Title>
+                <Card.Text>
+                  99.56
+                </Card.Text>
               </Card.Body>
             </Card>
           </div>
@@ -131,6 +159,7 @@ const mapState = (state) => {
   return {
     searchValue: state.mainPage.searchValue,
     toggleValue: state.mainPage.toggleValue,
+    THEstats: state.mainPage.THEstats,
   };
 };
 
@@ -141,6 +170,9 @@ const mapDispatch = (dispatch) => {
     },
     setToggle: (pVal) => {
       dispatch(setToggle(pVal));
+    },
+    getStats: (statsZ) => {
+      dispatch(getStats(statsZ));
     },
   };
 };
