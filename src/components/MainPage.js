@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { setSearch, setToggle, getStats } from "./mainPageStore";
+import { Link } from "react-router-dom";
+import { setSearch, setToggle, getStats } from "../store/mainPageStore";
 import { connect } from "react-redux";
-import "./App.css";
+import "../MainPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Card,
@@ -11,9 +12,7 @@ import {
   Dropdown,
 } from "react-bootstrap";
 
-import "./App.css";
-
-class App extends Component {
+class MainPage extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -32,51 +31,52 @@ class App extends Component {
 
   async handleClick(e) {
     e.preventDefault();
-    console.log("HandleClick Worked")
-    let fData
+    console.log("HandleClick Worked");
+    let fData;
     let platform = "battle";
     if (this.props.toggleValue === "PSN") {
-      platform = "psn"
+      platform = "psn";
     } else if (this.props.toggleValue === "Xbox") {
-      platform = "xbl"
+      platform = "xbl";
     }
 
-    await fetch(
-      `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${this.props.searchValue}/${platform}`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "9dafef2defmshb8713a2c67eba8ap12e8cfjsn8f171764478a",
-          "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {console.log("Our Fetched Data",data); fData = data; console.log("OUR ACTION CREATOR INVOKED", getStats(data)); return getStats(data) })
-      // .then((asd) => console.log("stats--->" ,asd, "state---->",this.props.THEstats))
-      // .then((data) =>console.log(456,data))
-      .catch((err) => {
-        console.error(err);
-      });
-    console.log("Our Data outside", fData)
-    getStats(fData)
-    console.log("---->", "end of handle Click")
+    // await fetch(
+    //   `https://call-of-duty-modern-warfare.p.rapidapi.com/warzone/${this.props.searchValue}/${platform}`,
+    //   {
+    //     method: "GET",
+    //     headers: {
+    //       "x-rapidapi-key":
+    //         "9dafef2defmshb8713a2c67eba8ap12e8cfjsn8f171764478a",
+    //       "x-rapidapi-host": "call-of-duty-modern-warfare.p.rapidapi.com",
+    //     },
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .then((data) => {console.log("Our Fetched Data",data); fData = data; console.log("OUR ACTION CREATOR INVOKED", getStats(data)); return getStats(data) })
+    //   // .then((asd) => console.log("stats--->" ,asd, "state---->",this.props.THEstats))
+    //   // .then((data) =>console.log(456,data))
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
+    // console.log("Our Data outside", fData)
+    // getStats(fData)
+    console.log("---->", "end of handle Click");
   }
 
   render() {
-    console.log("state---->",this.props.THEstats)
+    console.log("state---->", this.props.THEstats);
     return (
       <div className="App">
         <header className="App-header">
-          <div>DubStats</div>
           <div className="input">
             <br></br>
             <Card bg="light" className="searchBar">
               <InputGroup className="mb-3">
                 <Dropdown>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    {this.props.toggleValue === "" ? "BattleNET" : this.props.toggleValue}
+                    {this.props.toggleValue === ""
+                      ? "BattleNET"
+                      : this.props.toggleValue}
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item
@@ -111,42 +111,9 @@ class App extends Component {
                   onClick={this.handleClick}
                   id="submit"
                 >
-                  Button
+                  <Link to={"/stats"}>Button</Link>
                 </Button>
               </InputGroup>
-            </Card>
-
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>K/d</Card.Title>
-                <Card.Text>
-                  99.56
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>K/d</Card.Title>
-                <Card.Text>
-                  99.56
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>K/d</Card.Title>
-                <Card.Text>
-                  99.56
-                </Card.Text>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "18rem" }}>
-              <Card.Body>
-                <Card.Title>K/d</Card.Title>
-                <Card.Text>
-                  99.56
-                </Card.Text>
-              </Card.Body>
             </Card>
           </div>
         </header>
@@ -177,4 +144,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(App);
+export default connect(mapState, mapDispatch)(MainPage);
