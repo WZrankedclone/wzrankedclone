@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { createLogger } from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
-import mainPage from "./mainPageStore";
+import landingPage from "./landingPageStore";
 
 const reducer = combineReducers({
-  mainPage,
+  landingPage,
 });
 
 const middleware = composeWithDevTools(

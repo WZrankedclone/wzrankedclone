@@ -11,7 +11,7 @@ import {
   Dropdown,
 } from "react-bootstrap";
 
-class StatsPage extends Component {
+class WeatherPage extends Component {
   render() {
     return (
       <div>
@@ -79,4 +79,4 @@ class StatsPage extends Component {
   }
 }
 
-export default StatsPage;
+export default WeatherPage;

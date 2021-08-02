@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { setSearch, setToggle, getStats } from "../store/mainPageStore";
+import { setSearch, setToggle, getStats } from "../store/landingPageStore";
 import { connect } from "react-redux";
-import "../MainPage.css";
+import "../LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Card,
@@ -12,7 +12,7 @@ import {
   Dropdown,
 } from "react-bootstrap";
 
-class MainPage extends Component {
+class LandingPage extends Component {
   constructor() {
     super();
     this.handleClick = this.handleClick.bind(this);
@@ -111,7 +111,7 @@ class MainPage extends Component {
                   onClick={this.handleClick}
                   id="submit"
                 >
-                  <Link to={"/stats"}>Button</Link>
+                  <Link to={"/weather"}>Button</Link>
                 </Button>
               </InputGroup>
             </Card>
@@ -122,26 +122,27 @@ class MainPage extends Component {
   }
 }
 
-const mapState = (state) => {
-  return {
-    searchValue: state.mainPage.searchValue,
-    toggleValue: state.mainPage.toggleValue,
-    THEstats: state.mainPage.THEstats,
-  };
-};
+// const mapState = (state) => {
+//   return {
+//     searchValue: state.mainPage.searchValue,
+//     toggleValue: state.mainPage.toggleValue,
+//     THEstats: state.mainPage.THEstats,
+//   };
+// };
 
-const mapDispatch = (dispatch) => {
-  return {
-    setSearch: (sVal) => {
-      dispatch(setSearch(sVal));
-    },
-    setToggle: (pVal) => {
-      dispatch(setToggle(pVal));
-    },
-    getStats: (statsZ) => {
-      dispatch(getStats(statsZ));
-    },
-  };
-};
+// const mapDispatch = (dispatch) => {
+//   return {
+//     setSearch: (sVal) => {
+//       dispatch(setSearch(sVal));
+//     },
+//     setToggle: (pVal) => {
+//       dispatch(setToggle(pVal));
+//     },
+//     getStats: (statsZ) => {
+//       dispatch(getStats(statsZ));
+//     },
+//   };
+// };
 
-export default connect(mapState, mapDispatch)(MainPage);
+// export default connect(mapState, mapDispatch)(LandingPage);
+export default LandingPage;
