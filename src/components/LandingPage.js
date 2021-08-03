@@ -16,21 +16,11 @@ import {
 class LandingPage extends Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.pHandleChange = this.pHandleChange.bind(this);
   }
 
   async handleChange(e) {
     this.props.setSearch(e.target.value);
-  }
-
-  async pHandleChange(p) {
-    this.props.setToggle(p.target.innerHTML);
-  }
-
-  async handleClick(e) {
-    e.preventDefault();
   }
 
   render() {
