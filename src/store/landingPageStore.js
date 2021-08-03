@@ -3,13 +3,9 @@ import axios from "axios";
 // ACTION TYPES
 const SET_SEARCH = "SET_SEARCH";
 const SET_DATA = "SET_DATA";
+const SET_VIEW = "SET_VIEW";
 
 // ACTION CREATORS - function that changes state
-// export const setSearch = (sVal) => ({
-//   type: SET_SEARCH,
-//   sVal,
-// });
-
 export const setSearch = (sVal) => {
   function space(value) {
     let result = "";
@@ -36,6 +32,11 @@ export const setData = (wVal) => {
   };
 };
 
+export const setView = (view) => ({
+  type: SET_VIEW,
+  view,
+});
+
 // THUNK CREATORS
 export const fetchData = (dVal) => {
   return async (dispatch) => {
@@ -43,7 +44,7 @@ export const fetchData = (dVal) => {
       const options = {
         method: "GET",
         url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-        params: { q: `${dVal}` },
+        params: { q: `${dVal}`, days: "3" },
         headers: {
           "x-rapidapi-key":
             "264df7a5b5mshcc5521dd5824c80p12f388jsn3db4bd2719d6",
@@ -62,8 +63,8 @@ const initialState = {
   searchValue: "",
   current: {},
   location: {},
-  forecast: []
-  
+  forecast: [],
+  view: "Daily",
 };
 
 // REDUCER
@@ -80,6 +81,11 @@ export default function (state = initialState, action) {
         current: action.wVal.current,
         location: action.wVal.location,
         forecast: action.wVal.forecast.forecastday,
+      };
+    case SET_VIEW:
+      return {
+        ...state,
+        view: action.view,
       };
     default:
       return state;

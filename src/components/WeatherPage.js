@@ -3,22 +3,22 @@ import { connect } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DailyWeather from "./DailyWeather";
 import HourlyWeather from "./HourlyWeather";
-
-import NavbarPage from './navbar'
-import { fetchData } from "../store/landingPageStore";
-import {
-  Card,
-  Container,
-  Row,
-  Col,
-} from "react-bootstrap";
+import ThreeDayPage from "./ThreeDayPage";
+import NavbarPage from "./navbar";
+import { fetchData, setView } from "../store/landingPageStore";
+import { Card, Container, Row, Button, Col } from "react-bootstrap";
 
 class WeatherPage extends Component {
-  constructor(){
+  constructor() {
     super();
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount(){
+  async handleClick(e) {
+    e.preventDefault();
+  }
+
+  componentDidMount() {
     this.props.fetchData(this.props.searchValue);
   }
 
@@ -28,16 +28,18 @@ class WeatherPage extends Component {
     }
     return (
       <div className="mainpage">
-        <NavbarPage/>
+        <NavbarPage />
         <Container>
           <Row>
             <Col xs={14} md={10}>
-              {/* <DailyWeather /> */}
-              <HourlyWeather/>
+              <DailyWeather />
+              <HourlyWeather />
+              <ThreeDayPage />
             </Col>
             <Col xs={4} md={2}>
               <Card>
                 <Card.Body>This is the toggle</Card.Body>
+                <Button>button</Button>
               </Card>
             </Col>
           </Row>
@@ -50,6 +52,7 @@ const mapState = (state) => {
   return {
     searchValue: state.landingPage.searchValue,
     forecast: state.landingPage.forecast,
+    view: state.landingPage.view,
   };
 };
 
@@ -58,8 +61,10 @@ const mapDispatch = (dispatch) => {
     fetchData: (dVal) => {
       dispatch(fetchData(dVal));
     },
+    setView: (view) => {
+      dispatch(setView(view));
+    },
   };
 };
 
 export default connect(mapState, mapDispatch)(WeatherPage);
-

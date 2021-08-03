@@ -24,7 +24,7 @@ class DailyWeather extends Component {
                     <Card.Body>{this.props.current.condition.text}</Card.Body>
                   </Col>
                   <Col xs={4} md={2}>
-                    <Image src={this.props.current.condition.icon} roundedCircle /> 
+                    <Image src={this.props.current.condition.icon} roundedCircle />
                   </Col>
                 </Row>
               </Card>
