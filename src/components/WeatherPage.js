@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DailyWeather from "./DailyWeather";
+import NavbarPage from './navbar'
 import {
   Card,
   Container,
@@ -12,64 +14,21 @@ import {
 } from "react-bootstrap";
 
 class WeatherPage extends Component {
+  constructor(){
+    super();
+  }
   render() {
     return (
-      <div>
+      <div className="mainpage">
+        <NavbarPage/>
         <Container>
           <Row>
-            <Col>
+            <Col xs={14} md={10}>
+              <DailyWeather />
+            </Col>
+            <Col xs={4} md={2}>
               <Card>
-                <Card.Body>
-                  <Card.Title>GetLucky</Card.Title>
-                  <Card.Text>is bad</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          <br/>
-          <br/>
-          <Row>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Title>K/d</Card.Title>
-                  <Card.Text>99.56</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Title>K/d</Card.Title>
-                  <Card.Text>99.56</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          <br/>
-          <Row>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Title>K/d</Card.Title>
-                  <Card.Text>99.56</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Title>K/d</Card.Title>
-                  <Card.Text>99.56</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card className="text-center">
-                <Card.Body>
-                  <Card.Title>K/d</Card.Title>
-                  <Card.Text>99.56</Card.Text>
-                </Card.Body>
+                <Card.Body>This is the toggle</Card.Body>
               </Card>
             </Col>
           </Row>
