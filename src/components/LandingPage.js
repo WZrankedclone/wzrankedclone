@@ -20,7 +20,6 @@ class LandingPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.pHandleChange = this.pHandleChange.bind(this);
   }
-  componentDidMount() {}
 
   async handleChange(e) {
     this.props.setSearch(e.target.value);
