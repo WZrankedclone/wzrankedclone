@@ -38,31 +38,34 @@ export const setData = (wVal) => {
 };
 
 // THUNK CREATORS
-// export const fetchData = (dVal) => {
-//   return async (dispatch) => {
-//     try {
-//       const options = {
-//         method: "GET",
-//         url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
-//         params: { q: "skokie" },
-//         headers: {
-//           "x-rapidapi-key":
-//             "264df7a5b5mshcc5521dd5824c80p12f388jsn3db4bd2719d6",
-//           "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-//         },
-//       };
+export const fetchData = (dVal) => {
+  return async (dispatch) => {
+    try {
+      const options = {
+        method: "GET",
+        url: "https://weatherapi-com.p.rapidapi.com/forecast.json",
+        params: { q: `${dVal}` },
+        headers: {
+          "x-rapidapi-key":
+            "264df7a5b5mshcc5521dd5824c80p12f388jsn3db4bd2719d6",
+          "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
+        },
+      };
 
-//       const res = await axios.request(options);
-//       console.log(res.data, 'this is res');
-//       dispatch(setData(res.data));
-//     } catch (error) {}
-//   };
-// };
+      const res = await axios.request(options);
+      console.log(res.data, 'this is res');
+      dispatch(setData(res.data));
+    } catch (error) {}
+  };
+};
 
 // INITIAL STATE
 const initialState = {
   searchValue: "",
-  weatherValue: [],
+  current: {},
+  location: {},
+  forecast: []
+  
 };
 
 // REDUCER
@@ -76,7 +79,9 @@ export default function (state = initialState, action) {
     case SET_DATA:
       return {
         ...state,
-        weatherValue: [action.wVal],
+        current: action.wVal.current,
+        location: action.wVal.location,
+        forecast: action.wVal.forecast.forecastday,
       };
     default:
       return state;
