@@ -1,43 +1,22 @@
 import React, { Component } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import { setData, fetchData } from "../store/landingPageStore";
+import {fetchData } from "../store/landingPageStore";
 
 class DailyWeather extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
     };
   }
 
-  componentDidMount() {
-    fetch(
-      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${this.props.searchValue}&days=5`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "264df7a5b5mshcc5521dd5824c80p12f388jsn3db4bd2719d6",
-          "x-rapidapi-host": "weatherapi-com.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((value) => {
-        this.setState({
-          data: value,
-        });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-
+  async componentDidMount() {
+     await this.props.fetchData(this.props.searchValue)
   }
 
   render() {
-    console.log("this is state WE HAVE IT HERE", this.state.data);
-    if(this.props.data === []) {
+    console.log("1 this is state WE HAVE IT HERE", this.props.current);
+    if(this.props.current.length === 0) {
       return <div>loading</div>
     }
     return (
@@ -111,18 +90,17 @@ class DailyWeather extends Component {
 const mapState = (state) => {
   return {
     searchValue: state.landingPage.searchValue,
-    weatherValue: state.landingPage.weatherValue,
+    current: state.landingPage.current,
+    location: state.landingPage.location,
+    forecast: state.landingPage.forecast,
   };
 };
 
 const mapDispatch = (dispatch) => {
   return {
-    setData: (wVal) => {
-      dispatch(setData(wVal));
+    fetchData: (dVal) => {
+      dispatch(fetchData(dVal));
     },
-    // fetchData: (dVal) => {
-    //   dispatch(fetchData(dVal));
-    // },
   };
 };
 
