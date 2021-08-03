@@ -30,7 +30,6 @@ export const setSearch = (sVal) => {
 };
 
 export const setData = (wVal) => {
-  console.log("getdata");
   return {
     type: SET_DATA,
     wVal,
@@ -53,8 +52,7 @@ export const fetchData = (dVal) => {
       };
 
       const res = await axios.request(options);
-      console.log(res.data, 'this is res');
-      dispatch(setData(res.data));
+      dispatch(await setData(res.data));
     } catch (error) {}
   };
 };

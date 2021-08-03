@@ -1,23 +1,15 @@
 import React, { Component } from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import { connect } from "react-redux";
-import {fetchData } from "../store/landingPageStore";
 
 class DailyWeather extends Component {
   constructor() {
     super();
-    this.state = {
-    };
-  }
-
-  async componentDidMount() {
-     await this.props.fetchData(this.props.searchValue)
   }
 
   render() {
-    console.log("1 this is state WE HAVE IT HERE", this.props.current);
-    if(this.props.current.length === 0) {
-      return <div>loading</div>
+    if (this.props.forecast.length === 0) {
+      return <div>loading</div>;
     }
     return (
       <div>
@@ -27,12 +19,12 @@ class DailyWeather extends Component {
               <Card>
                 <Row>
                   <Col xs={14} md={10}>
-                    <Card.Body>city name</Card.Body>
-                    <Card.Body>temperature</Card.Body>
-                    <Card.Body>description</Card.Body>
+                    <Card.Body>{this.props.location.name}</Card.Body>
+                    <Card.Body>{this.props.current.temp_f}°</Card.Body>
+                    <Card.Body>{this.props.current.condition.text}</Card.Body>
                   </Col>
                   <Col xs={4} md={2}>
-                    <Card.Body>picture</Card.Body>
+                    <Image src={this.props.current.condition.icon} roundedCircle /> 
                   </Col>
                 </Row>
               </Card>
@@ -47,7 +39,7 @@ class DailyWeather extends Component {
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Card.Title>Sunrise</Card.Title>
-                    <Card.Text>40.4pm</Card.Text>
+                    <Card.Text>{this.props.forecast[0].astro.sunrise}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -56,7 +48,7 @@ class DailyWeather extends Component {
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Card.Title>Sunset</Card.Title>
-                    <Card.Text>45pm</Card.Text>
+                    <Card.Text>{this.props.forecast[0].astro.sunset}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -65,7 +57,7 @@ class DailyWeather extends Component {
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Card.Title>Moonrise</Card.Title>
-                    <Card.Text>12pm</Card.Text>
+                    <Card.Text>{this.props.forecast[0].astro.moonrise}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -74,7 +66,7 @@ class DailyWeather extends Component {
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Card.Title>Moonset</Card.Title>
-                    <Card.Text>12pm</Card.Text>
+                    <Card.Text>{this.props.forecast[0].astro.moonset}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -96,12 +88,4 @@ const mapState = (state) => {
   };
 };
 
-const mapDispatch = (dispatch) => {
-  return {
-    fetchData: (dVal) => {
-      dispatch(fetchData(dVal));
-    },
-  };
-};
-
-export default connect(mapState, mapDispatch)(DailyWeather);
+export default connect(mapState, null)(DailyWeather);
