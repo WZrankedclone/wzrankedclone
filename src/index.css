@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.reveal {
+  opacity: 1;
+  animation-name: show;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  /* animation-delay: 1s; */
+}

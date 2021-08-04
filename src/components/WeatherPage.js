@@ -16,7 +16,11 @@ class WeatherPage extends Component {
 
   async handleClick(e) {
     e.preventDefault();
+    const fade = document.getElementById(this.props.view)
+    fade.className = 'fade'
     this.props.setView(e.target.innerHTML);
+    const reveal = document.getElementById(this.props.view)
+    reveal.className = 'reveal'
   }
 
   componentDidMount() {
@@ -34,11 +38,17 @@ class WeatherPage extends Component {
           <Row>
             <Col xs={14} md={10}>
               {this.props.view === "Daily" ? (
-                <DailyWeather />
+                <div id="Daily">
+                  <DailyWeather/>
+                </div>
               ) : this.props.view === "Hourly" ? (
-                <HourlyWeather />
+                <div id="Hourly">
+                  <HourlyWeather/>
+                  </div>
               ) : (
-                <ThreeDayPage />
+                <div id="Three Day">
+                  <ThreeDayPage/>
+                  </div>
               )}
             </Col>
             <Col xs={4} md={2}>
