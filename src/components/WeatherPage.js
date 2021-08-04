@@ -16,9 +16,11 @@ class WeatherPage extends Component {
 
   async handleClick(e) {
     e.preventDefault();
+    this.props.setView(e.target.innerHTML);
   }
 
   componentDidMount() {
+    console.log("mount")
     this.props.fetchData(this.props.searchValue);
   }
 
@@ -32,14 +34,25 @@ class WeatherPage extends Component {
         <Container>
           <Row>
             <Col xs={14} md={10}>
-              <DailyWeather />
-              <HourlyWeather />
-              <ThreeDayPage />
+              {this.props.view === "Daily" ? (
+                <DailyWeather />
+              ) : this.props.view === "Hourly" ? (
+                <HourlyWeather />
+              ) : (
+                <ThreeDayPage />
+              )}
             </Col>
             <Col xs={4} md={2}>
               <Card>
-                <Card.Body>This is the toggle</Card.Body>
-                <Button>button</Button>
+                <Button className="Daily" onClick={this.handleClick}>
+                  Daily
+                </Button>
+                <Button className="ThreeDay" onClick={this.handleClick}>
+                  Three Day
+                </Button>
+                <Button className="Hourly" onClick={this.handleClick}>
+                  Hourly
+                </Button>
               </Card>
             </Col>
           </Row>
