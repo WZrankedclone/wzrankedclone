@@ -64,6 +64,7 @@ const mapState = (state) => {
   return {
     forecast: state.landingPage.forecast,
     view: state.landingPage.view,
+    searchValue: state.landingPage.searchValue,
   };
 };
 
