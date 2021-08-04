@@ -8,7 +8,7 @@ import {
   Button,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { setSearch, navSearch, fetchData } from "../store/landingPageStore";
+import { setSearch, fetchData } from "../store/landingPageStore";
 import { connect } from "react-redux";
 
 class NavbarPage extends Component {
@@ -19,17 +19,16 @@ class NavbarPage extends Component {
   }
 
   async handleChange(e) {
-    this.props.navSearch(e.target.value);
+    this.props.setSearch(e.target.value);
   }
 
   async handleClick(e) {
     e.preventDefault()
-    this.props.setSearch(this.props.nSearch);
     this.props.fetchData(this.props.searchValue);
+    
   }
 
   render() {
-    console.log(123, this.props);
     return (
       <div>
         <Navbar bg="light" variant="light">
@@ -57,7 +56,6 @@ class NavbarPage extends Component {
 }
 
 const mapState = (state) => ({
-  nSearch: state.landingPage.nSearch,
   searchValue: state.landingPage.searchValue,
   current: state.landingPage.current,
   location: state.landingPage.location,
@@ -67,9 +65,6 @@ const mapState = (state) => ({
 const mapDispatch = (dispatch) => ({
   setSearch: (sVal) => {
     dispatch(setSearch(sVal));
-  },
-  navSearch: (nVal) => {
-    dispatch(navSearch(nVal));
   },
   fetchData: (dVal) => {
     dispatch(fetchData(dVal));

@@ -20,7 +20,6 @@ class WeatherPage extends Component {
   }
 
   componentDidMount() {
-    console.log("mount")
     this.props.fetchData(this.props.searchValue);
   }
 
@@ -63,7 +62,6 @@ class WeatherPage extends Component {
 }
 const mapState = (state) => {
   return {
-    searchValue: state.landingPage.searchValue,
     forecast: state.landingPage.forecast,
     view: state.landingPage.view,
   };
