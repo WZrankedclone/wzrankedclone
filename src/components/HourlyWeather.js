@@ -49,7 +49,7 @@ class HourlyWeather extends Component {
         <Carousel prevLabel="" nextLabel="" variant="dark">
           {this.get24Hours(arr).map((el) => {
             return (
-              <Carousel.Item>
+              <Carousel.Item key={el[0].time}>
                 <CardGroup className="testings">
                   {el.map((hours) => {
                     return (
