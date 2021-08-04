@@ -4,7 +4,6 @@ import axios from "axios";
 const SET_SEARCH = "SET_SEARCH";
 const SET_DATA = "SET_DATA";
 const SET_VIEW = "SET_VIEW";
-const SET_NAVSEARCH = "SET_NAVSEARCH";
 
 // ACTION CREATORS - function that changes state
 export const setSearch = (sVal) => {
@@ -17,7 +16,6 @@ export const setSearch = (sVal) => {
         result += value[i];
       }
     }
-    console.log(result);
     return result;
   }
   return {
@@ -37,8 +35,6 @@ export const setView = (view) => ({
   type: SET_VIEW,
   view,
 });
-
-export const navSearch = (nVal) => ({ type: SET_NAVSEARCH, nVal });
 
 // THUNK CREATORS
 export const fetchData = (dVal) => {
@@ -68,7 +64,6 @@ const initialState = {
   location: {},
   forecast: [],
   view: "Daily",
-  nSearch: "",
 };
 
 // REDUCER
@@ -90,11 +85,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         view: action.view,
-      };
-    case SET_NAVSEARCH:
-      return {
-        ...state,
-        nSearch: action.nVal,
       };
     default:
       return state;
