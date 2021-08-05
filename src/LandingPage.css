@@ -1,9 +1,28 @@
-.searchBar{
-    padding: 100px 50px 100px;
-
-
+.searchBar {
+  padding: 100px 50px 100px;
 }
 
-.testings{
-    padding: 0px 100px;
+.testings {
+  padding: 0px 100px;
+}
+
+.backgroundBackLanding {
+  text-align: center;
+  background-image: url("https://sm.mashable.com/mashable_in/photo/default/nasa-galaxy_9pu4.jpg");
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  background-position: center;
+  background: rgba(0, 0, 0, 0.959);
+}
+.backgroundFrontLanding {
+  text-align: center;
+  background-image: url("https://media4.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif?cid=ecf05e47rlha0aq8k9zcfjaplzy6egtifqmvuiwo66987inv&rid=giphy.gif&ct=g");
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
