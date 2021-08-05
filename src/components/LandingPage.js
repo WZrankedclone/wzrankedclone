@@ -30,18 +30,17 @@ class LandingPage extends Component {
           <div className="input">
             <div className="backgroundBackLanding">
               <div className="backgroundFrontLanding">
-                <Form className="d-flex">
-                  <FormControl
-                    type="search"
-                    placeholder="Search"
-                    className="mr-2"
-                    aria-label="Search"
+                <div className="LandingSearchContainer">
+                  <input
+                  className="LandingSearchBar"
+                    type="text"
+                    placeholder="Search City"
                     onChange={this.handleChange}
                   />
-                  <Button variant="outline-success">
-                    <Link to={"/weather"}>Search</Link>
-                  </Button>
-                </Form>
+                  <Link to={"/weather"}>
+                    <button className="LandingButton" type="submit">Search</button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
