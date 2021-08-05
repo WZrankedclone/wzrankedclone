@@ -8,26 +8,51 @@ import NavbarPage from "./navbar";
 import { fetchData, setView } from "../store/landingPageStore";
 import { Card, Container, Row, Button, Col } from "react-bootstrap";
 
+const styles = {
+  transition: "all 0.2s ease-out"
+}
 class WeatherPage extends Component {
   constructor() {
     super();
+    this.state = {
+      opacity: 1,
+
+  };
     this.handleClick = this.handleClick.bind(this);
+    this.onHide = this.onHide.bind(this);
   }
-
-  async handleClick(e) {
-    e.preventDefault();
-    const fade = document.getElementById(this.props.view)
-    fade.className = 'fade'
-    this.props.setView(e.target.innerHTML);
-    const reveal = document.getElementById(this.props.view)
-    reveal.className = 'reveal'
-  }
-
+  
   componentDidMount() {
     this.props.fetchData(this.props.searchValue);
   }
 
+  onHide() {
+    this.setState({
+      opacity: 0
+    });
+  }
+
+  async handleClick(e) {
+    e.preventDefault();
+    await this.onHide()
+    setTimeout(
+      function() {
+          this.props.setView(e.target.innerHTML);;
+      }
+      .bind(this),
+      200
+  );
+    setTimeout(
+      function() {
+          this.setState({ opacity: 1 });
+      }
+      .bind(this),
+      300
+  );
+  }
+
   render() {
+    console.log(1111, this.state)
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
@@ -37,19 +62,22 @@ class WeatherPage extends Component {
         <Container>
           <Row>
             <Col xs={14} md={10}>
+              <div>
               {this.props.view === "Daily" ? (
-                <div id="Daily">
+                <div style={{...styles, opacity: this.state.opacity}}>
                   <DailyWeather/>
                 </div>
               ) : this.props.view === "Hourly" ? (
-                <div id="Hourly">
+                <div style={{...styles, opacity: this.state.opacity}}>
                   <HourlyWeather/>
                   </div>
               ) : (
-                <div id="Three Day">
+                <div style={{...styles, opacity: this.state.opacity}}>
                   <ThreeDayPage/>
                   </div>
               )}
+
+              </div>
             </Col>
             <Col xs={4} md={2}>
               <Card>
