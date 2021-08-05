@@ -19,10 +19,26 @@
 .backgroundFrontLanding {
   text-align: center;
   background-image: url("https://media4.giphy.com/media/l5JbspfwZ0yjHjlJ0K/giphy.gif?cid=ecf05e47rlha0aq8k9zcfjaplzy6egtifqmvuiwo66987inv&rid=giphy.gif&ct=g");
-  position: fixed;
+  /* position: fixed; */
+	padding-left: 63px;
   min-width: 100%;
   min-height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.LandingSearchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+	position: fill;
+	height: 100vh;
+	/* width: 100vh; */
+
+}
+
+.LandingSearchBar{
+	width: 500px;
+}
+
