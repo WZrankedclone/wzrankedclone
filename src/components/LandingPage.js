@@ -28,18 +28,22 @@ class LandingPage extends Component {
       <div className="App">
         <header className="App-header">
           <div className="input">
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="mr-2"
-                aria-label="Search"
-                onChange={this.handleChange}
-              />
-              <Button variant="outline-success">
-                <Link to={"/weather"}>Search</Link>
-              </Button>
-            </Form>
+            <div className="backgroundBackLanding">
+              <div className="backgroundFrontLanding">
+                <Form className="d-flex">
+                  <FormControl
+                    type="search"
+                    placeholder="Search"
+                    className="mr-2"
+                    aria-label="Search"
+                    onChange={this.handleChange}
+                  />
+                  <Button variant="outline-success">
+                    <Link to={"/weather"}>Search</Link>
+                  </Button>
+                </Form>
+              </div>
+            </div>
           </div>
         </header>
       </div>
