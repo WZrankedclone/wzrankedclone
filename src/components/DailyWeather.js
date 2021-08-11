@@ -1,17 +1,26 @@
 import React, { Component } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import { connect } from "react-redux";
-import "./styles/LandingPage.css";
+import "./styles/DailyWeather.css";
 
 class DailyWeather extends Component {
   constructor() {
     super();
+    this.removeZero = this.removeZero.bind(this);
+  }
+
+  removeZero(time) {
+    if (time[0] === "0") {
+      return time.slice(1);
+    }
+    return time;
   }
 
   render() {
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
+    console.log(this.props);
     return (
       <div>
         <Container>
@@ -20,55 +29,82 @@ class DailyWeather extends Component {
               <Card>
                 <Row>
                   <Col xs={14} md={10}>
-                    <Card.Body>{this.props.location.name}</Card.Body>
-                    <Card.Body>{this.props.current.temp_f}°</Card.Body>
-                    <Card.Body>{this.props.current.condition.text}</Card.Body>
+                    <Card.Body id="dailyLocationName">
+                      {this.props.location.name}
+                    </Card.Body>
+                    <Card.Body id="dailyTemp">
+                      {this.props.current.temp_f}°
+                    </Card.Body>
+                    <Card.Body id="dailyCondition">
+                      {this.props.current.condition.text}
+                    </Card.Body>
+                    <Card.Body id="dailyRain">
+                      Chance of rain{" "}
+                      {this.props.forecast[0].day.daily_chance_of_rain}%
+                    </Card.Body>
                   </Col>
                   <Col xs={4} md={2}>
-                    <Image src={this.props.current.condition.icon} roundedCircle />
+                    <Image
+                      src={this.props.current.condition.icon}
+                      roundedCircle
+                    />
                   </Col>
                 </Row>
               </Card>
             </Col>
           </Row>
           <br></br>
-          <Card>
+          <Card id="astroContainer">
             <br></br>
             <Row className="dailyCityInfo">
               <Col>
-                <Card className="text-center">
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Sunrise</Card.Title>
-                    <Card.Text>{this.props.forecast[0].astro.sunrise}</Card.Text>
-                  </Card.Body>
+                <Card id="dailySunriseContainer" className="containerShadow">
+                  <Card.Img
+                    id="dailySunriseImage"
+                    src="/images/icons8-sunrise-96.png"
+                  />
+                  <Card.Title id="dailySunriseTitle">Sunrise</Card.Title>
+                  <Card.Text id="dailySunriseTime">
+                    {this.removeZero(this.props.forecast[0].astro.sunrise)}
+                  </Card.Text>
                 </Card>
               </Col>
               <Col>
-                <Card className="text-center">
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Sunset</Card.Title>
-                    <Card.Text>{this.props.forecast[0].astro.sunset}</Card.Text>
-                  </Card.Body>
+                <Card id="dailySunsetContainer" className="containerShadow">
+                  <Card.Img
+                    id="dailySunsetImage"
+                    src="/images/icons8-sunset-96.png"
+                  />
+                  <Card.Title id="dailySunsetTitle">Sunset</Card.Title>
+                  <Card.Text id="dailySunsetTime">
+                    {this.removeZero(this.props.forecast[0].astro.sunset)}
+                  </Card.Text>
                 </Card>
               </Col>
               <Col>
-                <Card className="text-center">
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Moonrise</Card.Title>
-                    <Card.Text>{this.props.forecast[0].astro.moonrise}</Card.Text>
-                  </Card.Body>
+                <Card id="dailyMoonriseContainer" className="containerShadow">
+                  <Card.Img
+                    id="dailyMoonriseImage"
+                    src="/images/icons8-moonrise-96.png"
+                  />
+
+                  <Card.Title id="dailyMoonriseTitle">Moonrise</Card.Title>
+                  <Card.Text id="dailyMoonriseTime">
+                    {this.removeZero(this.props.forecast[0].astro.moonrise)}
+                  </Card.Text>
                 </Card>
               </Col>
               <Col>
-                <Card className="text-center">
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Moonset</Card.Title>
-                    <Card.Text>{this.props.forecast[0].astro.moonset}</Card.Text>
-                  </Card.Body>
+                <Card id="dailyMoonsetContainer" className="containerShadow">
+                  <Card.Img
+                    id="dailyMoonsetImage"
+                    src="/images/icons8-moonset-96.png"
+                  />
+
+                  <Card.Title id="dailyMoonsetTitle">Moonset</Card.Title>
+                  <Card.Text id="dailyMoonsetTime">
+                    {this.removeZero(this.props.forecast[0].astro.moonset)}
+                  </Card.Text>
                 </Card>
               </Col>
             </Row>

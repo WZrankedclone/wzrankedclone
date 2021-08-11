@@ -1,0 +1,149 @@
+.containerShadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#dailyLocationName {
+  font-size: 3vw;
+  padding-bottom: 0px;
+}
+
+#dailyTemp {
+  font-size: 10vw;
+  font-weight: bold;
+  padding: 0px 16px;
+}
+
+#dailyCondition {
+  font-size: 2.5vw;
+
+  padding: 0px 16px;
+}
+
+#dailyRain {
+  font-size: 2vw;
+  padding-top: 0px;
+}
+
+#astroContainer {
+  background-color: rgb(214, 216, 218);
+  padding: 0px 20px;
+}
+
+#dailySunriseContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  background: rgb(254, 74, 48);
+  background: linear-gradient(
+    22deg,
+    rgba(254, 74, 48, 1) 0%,
+    rgba(255, 140, 13, 1) 29%,
+    rgba(255, 157, 67, 1) 54%,
+    rgba(255, 254, 110, 1) 88%
+  );
+}
+
+#dailySunriseImage {
+  height: 8vh;
+  width: 8vh;
+}
+
+#dailySunriseTitle {
+  font-size: 3vh;
+}
+
+#dailySunriseTime {
+  padding-bottom: 10px;
+  font-size: 3vh;
+}
+
+#dailySunsetContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  background: rgb(101, 76, 254);
+  background: linear-gradient(
+    335deg,
+    rgba(101, 76, 254, 1) 12%,
+    rgba(255, 105, 200, 1) 46%,
+    rgba(255, 181, 133, 1) 71%,
+    rgba(255, 254, 110, 1) 100%
+  );
+}
+
+#dailySunsetImage {
+  height: 8vh;
+  width: 8vh;
+}
+
+#dailySunsetTitle {
+  font-size: 3vh;
+}
+
+#dailySunsetTime {
+  padding-bottom: 10px;
+  font-size: 3vh;
+}
+
+#dailyMoonriseContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  background: rgb(79, 54, 236);
+  background: linear-gradient(
+    22deg,
+    rgba(79, 54, 236, 1) 2%,
+    rgba(101, 76, 254, 1) 18%,
+    rgba(58, 51, 101, 1) 55%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+#dailyMoonriseImage {
+  height: 8vh;
+  width: 8vh;
+}
+
+#dailyMoonriseTitle {
+  color: white;
+  font-size: 3vh;
+}
+
+#dailyMoonriseTime {
+  color: white;
+  padding-bottom: 10px;
+  font-size: 3vh;
+}
+
+#dailyMoonsetContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  background: rgb(58, 51, 101);
+  background: linear-gradient(
+    335deg,
+    rgba(58, 51, 101, 1) 30%,
+    rgba(19, 17, 33, 1) 78%,
+    rgba(0, 0, 0, 1) 98%
+  );
+}
+
+#dailyMoonsetImage {
+  height: 8vh;
+  width: 8vh;
+}
+
+#dailyMoonsetTitle {
+  font-size: 3vh;
+  color: white;
+}
+
+#dailyMoonsetTime {
+  font-size: 3vh;
+  color: white;
+  padding-bottom: 10px;
+}

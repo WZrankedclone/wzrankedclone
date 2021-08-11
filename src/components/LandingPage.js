@@ -31,15 +31,17 @@ class LandingPage extends Component {
             <div className="backgroundBackLanding">
               <div className="backgroundFrontLanding">
                 <div className="LandingSearchContainer">
-                  <input
-                  className="LandingSearchBar"
-                    type="text"
-                    placeholder="Search City"
-                    onChange={this.handleChange}
-                  />
-                  <Link to={"/weather"}>
-                    <button className="LandingButton" type="submit">Search</button>
-                  </Link>
+                  <form>
+                    <input
+                      className="LandingSearchBar"
+                      type="text"
+                      placeholder="Search City"
+                      onChange={this.handleChange}
+                    />
+                    <Link to={"/weather"}>
+                      <button className="LandingButton">Search</button>
+                    </Link>
+                  </form>
                 </div>
               </div>
             </div>

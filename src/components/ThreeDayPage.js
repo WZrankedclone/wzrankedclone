@@ -8,7 +8,6 @@ class ThreeDayPage extends Component {
   constructor() {
     super();
   }
-
   render() {
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
