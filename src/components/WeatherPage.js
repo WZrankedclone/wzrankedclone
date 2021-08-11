@@ -10,50 +10,47 @@ import { Card, Container, Row, Button, Col } from "react-bootstrap";
 import "./styles/WeatherPage.css";
 
 const styles = {
-  transition: "all 0.2s ease-out"
-}
+  transition: "all 0.2s ease-out",
+};
 class WeatherPage extends Component {
   constructor() {
     super();
     this.state = {
       opacity: 1,
-
-  };
+    };
     this.handleClick = this.handleClick.bind(this);
     this.onHide = this.onHide.bind(this);
   }
-  
+
   componentDidMount() {
     this.props.fetchData(this.props.searchValue);
   }
 
   onHide() {
     this.setState({
-      opacity: 0
+      opacity: 0,
     });
   }
 
   async handleClick(e) {
     e.preventDefault();
-    await this.onHide()
+    await this.onHide();
     setTimeout(
-      function() {
-          this.props.setView(e.target.innerHTML);;
-      }
-      .bind(this),
+      function () {
+        this.props.setView(e.target.innerHTML);
+      }.bind(this),
       200
-  );
+    );
     setTimeout(
-      function() {
-          this.setState({ opacity: 1 });
-      }
-      .bind(this),
+      function () {
+        this.setState({ opacity: 1 });
+      }.bind(this),
       300
-  );
+    );
   }
 
   render() {
-    console.log(1111, this.state)
+    console.log(1111, this.state);
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
@@ -64,20 +61,19 @@ class WeatherPage extends Component {
           <Row>
             <Col xs={14} md={10}>
               <div className="weatherContainer">
-              {this.props.view === "Daily" ? (
-                <div style={{...styles, opacity: this.state.opacity}}>
-                  <DailyWeather/>
-                </div>
-              ) : this.props.view === "Hourly" ? (
-                <div style={{...styles, opacity: this.state.opacity}}>
-                  <HourlyWeather/>
+                {this.props.view === "Daily" ? (
+                  <div style={{ ...styles, opacity: this.state.opacity }}>
+                    <DailyWeather />
                   </div>
-              ) : (
-                <div style={{...styles, opacity: this.state.opacity}}>
-                  <ThreeDayPage/>
+                ) : this.props.view === "Hourly" ? (
+                  <div style={{ ...styles, opacity: this.state.opacity }}>
+                    <HourlyWeather />
                   </div>
-              )}
-
+                ) : (
+                  <div style={{ ...styles, opacity: this.state.opacity }}>
+                    <ThreeDayPage />
+                  </div>
+                )}
               </div>
             </Col>
             <Col xs={4} md={2}>
