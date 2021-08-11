@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Row, Col, Image } from "react-bootstrap";
+import "./styles/LandingPage.css";
 
 class ThreeDayPage extends Component {
   constructor() {

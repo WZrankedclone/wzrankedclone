@@ -1,0 +1,92 @@
+#HourlyWeatherContainer{
+}
+.fourHourSection {
+  padding: 0px 8vw;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  justify-content: space-between;
+  width: 70px;
+  padding: 20px;
+}
+
+.alignCenter{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+#hourDate {
+  height: 7vh;
+  font-size: 1.4vw;
+  padding-bottom: 2px;
+}
+#hourTime {
+  height: 9vh;
+  padding-top: 0px;
+  font-size: 1.4vw;
+}
+#hourTemp {
+  height: 10vh;
+  font-size: 7vh;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#hourTempType {
+  height: 5vh;
+  font-size: 3vh;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#HourImage{
+  height: 25vh;
+}
+
+#HourImageIcon{
+  height: 120px;
+  width: 120px;
+}
+
+#hourWeatherCondition {
+  height: 12vh;
+  font-size: 2vh;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+#hourRainVeryLittle {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #ffffff;
+}
+#hourRainLittle {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #e0f4ff;
+}
+#hourRainMild {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #b8e6ff;
+}
+#hourRainPouring {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #66c9ff;
+}
+#hourRainHeavy {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #009ff5;
+}
+#hourRainVeryHeavy {
+  height: 12vh;
+  padding-top:0;
+  padding-bottom: 0;
+  background-color: #0074b3;
+}
