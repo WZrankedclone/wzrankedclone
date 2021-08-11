@@ -2,29 +2,64 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+#dailyCityWeather{
+  height: 55vh;
+}
+
 #dailyLocationName {
+  height: 11vh;
+  display: flex;
+  align-items:center;
   font-size: 3vw;
   padding-bottom: 0px;
 }
 
 #dailyTemp {
-  font-size: 10vw;
+  height: 23vh;
+  display: flex;
+  align-items:center;
+  font-size: 12vw;
   font-weight: bold;
   padding: 0px 16px;
+
 }
 
 #dailyCondition {
+  height: 9vh;
+  display: flex;
+  align-items:center;
   font-size: 2.5vw;
-
   padding: 0px 16px;
 }
 
 #dailyRain {
+  height: 9vh;
+  display: flex;
+  align-items:center;
   font-size: 2vw;
   padding-top: 0px;
 }
 
+
+#dailyImageContainer{
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#dailyImageIcon {
+  height: 40vh;
+  width: 25vw
+}
+
+
 #astroContainer {
+  height: 25vh;
+  display: flex;
+  justify-content: center;
   background-color: rgb(214, 216, 218);
   padding: 0px 20px;
 }
@@ -50,10 +85,12 @@
 }
 
 #dailySunriseTitle {
+  height: 3vh;
   font-size: 3vh;
 }
 
 #dailySunriseTime {
+  height: 3vh;
   padding-bottom: 10px;
   font-size: 3vh;
 }
@@ -79,10 +116,12 @@
 }
 
 #dailySunsetTitle {
+  height: 3vh;
   font-size: 3vh;
 }
 
 #dailySunsetTime {
+  height: 3vh;
   padding-bottom: 10px;
   font-size: 3vh;
 }
@@ -108,11 +147,13 @@
 }
 
 #dailyMoonriseTitle {
+  height: 3vh;
   color: white;
   font-size: 3vh;
 }
 
 #dailyMoonriseTime {
+  height: 3vh;
   color: white;
   padding-bottom: 10px;
   font-size: 3vh;
@@ -138,11 +179,13 @@
 }
 
 #dailyMoonsetTitle {
+  height: 3vh;
   font-size: 3vh;
   color: white;
 }
 
 #dailyMoonsetTime {
+  height: 3vh;
   font-size: 3vh;
   color: white;
   padding-bottom: 10px;

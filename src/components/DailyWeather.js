@@ -24,37 +24,30 @@ class DailyWeather extends Component {
     return (
       <div>
         <Container>
-          <Row className="dailyCityWeather">
-            <Col>
-              <Card>
-                <Row>
-                  <Col xs={14} md={10}>
-                    <Card.Body id="dailyLocationName">
-                      {this.props.location.name}
-                    </Card.Body>
-                    <Card.Body id="dailyTemp">
-                      {this.props.current.temp_f}°
-                    </Card.Body>
-                    <Card.Body id="dailyCondition">
-                      {this.props.current.condition.text}
-                    </Card.Body>
-                    <Card.Body id="dailyRain">
-                      Chance of rain{" "}
-                      {this.props.forecast[0].day.daily_chance_of_rain}%
-                    </Card.Body>
-                  </Col>
-                  <Col xs={4} md={2}>
-                    <Image
-                      src={this.props.current.condition.icon}
-                      roundedCircle
-                    />
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          </Row>
+          <Card id="dailyCityWeather" className="containerShadow">
+            <Row>
+              <Col >
+                <Card.Body id="dailyLocationName">
+                  {this.props.location.name}
+                </Card.Body>
+                <Card.Body id="dailyTemp">
+                  {this.props.current.temp_f}°
+                </Card.Body>
+                <Card.Body id="dailyCondition">
+                  {this.props.current.condition.text}
+                </Card.Body>
+                <Card.Body id="dailyRain">
+                  Chance of rain{" "}
+                  {this.props.forecast[0].day.daily_chance_of_rain}%
+                </Card.Body>
+              </Col>
+              <Col  id="dailyImageContainer">
+                <Image id="dailyImageIcon" src={this.props.current.condition.icon} roundedCircle />
+              </Col>
+            </Row>
+          </Card>
           <br></br>
-          <Card id="astroContainer">
+          <Card id="astroContainer" className="containerShadow">
             <br></br>
             <Row className="dailyCityInfo">
               <Col>
