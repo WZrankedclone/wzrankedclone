@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Container, Row, Col, Image } from "react-bootstrap";
 import { connect } from "react-redux";
+import "./styles/LandingPage.css";
 
 class DailyWeather extends Component {
   constructor() {

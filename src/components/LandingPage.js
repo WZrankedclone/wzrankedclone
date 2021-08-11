@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { setSearch } from "../store/landingPageStore";
 import { connect } from "react-redux";
-import "../LandingPage.css";
+import "./styles/LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Card,

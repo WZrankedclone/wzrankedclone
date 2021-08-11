@@ -7,6 +7,7 @@ import ThreeDayPage from "./ThreeDayPage";
 import NavbarPage from "./navbar";
 import { fetchData, setView } from "../store/landingPageStore";
 import { Card, Container, Row, Button, Col } from "react-bootstrap";
+import "./styles/WeatherPage.css";
 
 const styles = {
   transition: "all 0.2s ease-out"
@@ -62,7 +63,7 @@ class WeatherPage extends Component {
         <Container>
           <Row>
             <Col xs={14} md={10}>
-              <div>
+              <div className="weatherContainer">
               {this.props.view === "Daily" ? (
                 <div style={{...styles, opacity: this.state.opacity}}>
                   <DailyWeather/>

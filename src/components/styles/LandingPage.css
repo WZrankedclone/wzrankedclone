@@ -2,10 +2,6 @@
   padding: 100px 50px 100px;
 }
 
-.testings {
-  padding: 0px 100px;
-}
-
 .backgroundBackLanding {
   text-align: center;
   background-image: url("https://sm.mashable.com/mashable_in/photo/default/nasa-galaxy_9pu4.jpg");
@@ -41,4 +37,3 @@
 .LandingSearchBar{
 	width: 500px;
 }
-

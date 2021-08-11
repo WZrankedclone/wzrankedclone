@@ -1,0 +1,20 @@
+/* .weatherContainer{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 90vh;
+    background-color: rgba(201, 201, 201, 0.959);
+  } */
+
+  .weatherContainer {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 90vh;
+    background-color: rgba(201, 201, 201, 0.959);
+    flex-direction: column;
+}
