@@ -10,6 +10,16 @@
   padding: 20px;
 }
 
+.hourColumn1{
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.hourColumn4{
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+
 .alignCenter{
   display: flex;
   align-items:center;
@@ -17,29 +27,29 @@
 }
 
 #hourDate {
-  height: 7vh;
+  height: 6.5vh;
   font-size: 1.4vw;
   padding-bottom: 2px;
 }
 #hourTime {
-  height: 9vh;
+  height: 8.5vh;
   padding-top: 0px;
   font-size: 1.4vw;
 }
 #hourTemp {
-  height: 10vh;
+  height: 9.5vh;
   font-size: 7vh;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 #hourTempType {
-  height: 5vh;
+  height: 4.5vh;
   font-size: 3vh;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 #HourImage{
-  height: 25vh;
+  height: 24.5vh;
 }
 
 #HourImageIcon{
@@ -48,7 +58,7 @@
 }
 
 #hourWeatherCondition {
-  height: 12vh;
+  height: 11.5vh;
   font-size: 2vh;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -59,34 +69,46 @@
   padding-top:0;
   padding-bottom: 0;
   background-color: #ffffff;
+  margin: 5px;
+  border-radius: 25px;
 }
 #hourRainLittle {
   height: 12vh;
   padding-top:0;
   padding-bottom: 0;
   background-color: #e0f4ff;
+  margin: 5px;
+  border-radius: 15px;
 }
 #hourRainMild {
-  height: 12vh;
+  height: 6vh;
   padding-top:0;
   padding-bottom: 0;
   background-color: #b8e6ff;
+  margin: 20px;
+  border-radius: 15px;
 }
 #hourRainPouring {
-  height: 12vh;
+  height: 6vh;
   padding-top:0;
   padding-bottom: 0;
   background-color: #66c9ff;
+  margin: 20px;
+  border-radius: 15px;
 }
 #hourRainHeavy {
-  height: 12vh;
+  height: 6vh;
   padding-top:0;
   padding-bottom: 0;
   background-color: #009ff5;
+  margin: 20px;
+  border-radius: 15px;
 }
 #hourRainVeryHeavy {
-  height: 12vh;
+  height: 6vh;
   padding-top:0;
   padding-bottom: 0;
   background-color: #0074b3;
+  margin: 20px;
+  border-radius: 15px;
 }

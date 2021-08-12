@@ -30,9 +30,8 @@ class DailyWeather extends Component {
       return <div>loading</div>;
     }
     return (
-      <div>
-        <Container>
-          <Card id="dailyCityWeather" className="containerShadow">
+      <div id="dailyWeatherContainer"> 
+          <Card id="dailyWeatherTopContainer" className="containerShadow">
             <Row>
               <Col >
                 <Card.Body id="dailyLocationName">
@@ -55,11 +54,11 @@ class DailyWeather extends Component {
             </Row>
           </Card>
           <br></br>
-          <Card id="astroContainer" className="containerShadow">
+          <Card id="dailyWeatherBottomContainer" className="containerShadow">
             <br></br>
             <Row className="dailyCityInfo">
               <Col>
-                <Card id="dailySunriseContainer" className="containerShadow">
+                <Card id="dailySunriseContainer" className="containerShadowLess">
                   <Card.Img
                     id="dailySunriseImage"
                     src="/images/icons8-sunrise-96.png"
@@ -71,7 +70,7 @@ class DailyWeather extends Component {
                 </Card>
               </Col>
               <Col>
-                <Card id="dailySunsetContainer" className="containerShadow">
+                <Card id="dailySunsetContainer" className="containerShadowLess">
                   <Card.Img
                     id="dailySunsetImage"
                     src="/images/icons8-sunset-96.png"
@@ -83,7 +82,7 @@ class DailyWeather extends Component {
                 </Card>
               </Col>
               <Col>
-                <Card id="dailyMoonriseContainer" className="containerShadow">
+                <Card id="dailyMoonriseContainer" className="containerShadowLess">
                   <Card.Img
                     id="dailyMoonriseImage"
                     src="/images/icons8-moonrise-96.png"
@@ -96,7 +95,7 @@ class DailyWeather extends Component {
                 </Card>
               </Col>
               <Col>
-                <Card id="dailyMoonsetContainer" className="containerShadow">
+                <Card id="dailyMoonsetContainer" className="containerShadowLess">
                   <Card.Img
                     id="dailyMoonsetImage"
                     src="/images/icons8-moonset-96.png"
@@ -111,7 +110,6 @@ class DailyWeather extends Component {
             </Row>
             <br></br>
           </Card>
-        </Container>
       </div>
     );
   }
