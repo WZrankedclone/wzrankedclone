@@ -6,7 +6,6 @@ import "./styles/HourlyWeather.css";
 
 class HourlyWeather extends Component {
   constructor() {
-
     super();
     this.mapHourly = this.mapHourly.bind(this)
     this.get24Hours = this.get24Hours.bind(this)
@@ -16,6 +15,7 @@ class HourlyWeather extends Component {
     this.rainPercentageToColor = this.rainPercentageToColor.bind(this)
     this.tempType = this.tempType.bind(this)
     this.tempTypeIcon = this.tempTypeIcon.bind(this)
+    this.eachSectionClassName = this.eachSectionClassName.bind(this)
   }
 
   getMonth(num){
@@ -104,6 +104,19 @@ class HourlyWeather extends Component {
     }
   }
 
+  eachSectionClassName(num){
+    if(num === 0){
+      return "hourColumn1"
+    } else if(num === 1){
+      return "hourColumn2"
+    } else if(num === 2){
+      return "hourColumn3"
+    } else{
+      return "hourColumn4"
+    } 
+
+  }
+
   mapHourly(arr) {
     return (
       <div>
@@ -112,9 +125,9 @@ class HourlyWeather extends Component {
             return (
               <Carousel.Item key={el[0].time}>
                 <CardGroup className="fourHourSection">
-                  {el.map((hours) => {
+                  {el.map((hours, index) => {
                     return (
-                      <Card className="text-center" key={hours.time}>
+                      <Card className = {this.eachSectionClassName(index)} key={hours.time}>
                         <Card.Body id="hourDate" className="alignCenter">{this.getMonth(hours.time.slice(5,7))}-{hours.time.slice(8,10)}-{hours.time.slice(0,4)}</Card.Body>
                         <Card.Body id="hourTime" className="alignCenter">{this.hourConverter(hours.time.slice(11,13))}</Card.Body>
                         <Card.Body id="HourImage" className="alignCenter"> 

@@ -2,9 +2,17 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.containerShadowLess{
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
 
-#dailyCityWeather{
-  height: 55vh;
+#dailyWeatherContainer{
+  padding: 0px 8vw;
+}
+
+#dailyWeatherTopContainer{
+  border-radius: 20px;
+  height: 52vh;
 }
 
 #dailyLocationName {
@@ -56,19 +64,20 @@
 }
 
 
-#astroContainer {
-  height: 25vh;
+#dailyWeatherBottomContainer {
+  height: 22vh;
   display: flex;
   justify-content: center;
   background-color: rgb(214, 216, 218);
   padding: 0px 20px;
+  border-radius: 20px;
 }
 
 #dailySunriseContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 17vh;
   background: rgb(254, 74, 48);
   background: linear-gradient(
     22deg,
@@ -77,6 +86,7 @@
     rgba(255, 157, 67, 1) 54%,
     rgba(255, 254, 110, 1) 88%
   );
+  border-radius: 20px;
 }
 
 #dailySunriseImage {
@@ -85,21 +95,21 @@
 }
 
 #dailySunriseTitle {
-  height: 3vh;
+  height: 2vh;
   font-size: 3vh;
 }
 
 #dailySunriseTime {
   height: 3vh;
   padding-bottom: 10px;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 
 #dailySunsetContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 17vh;
   background: rgb(101, 76, 254);
   background: linear-gradient(
     335deg,
@@ -108,6 +118,7 @@
     rgba(255, 181, 133, 1) 71%,
     rgba(255, 254, 110, 1) 100%
   );
+  border-radius: 20px;
 }
 
 #dailySunsetImage {
@@ -116,21 +127,21 @@
 }
 
 #dailySunsetTitle {
-  height: 3vh;
+  height: 2vh;
   font-size: 3vh;
 }
 
 #dailySunsetTime {
   height: 3vh;
   padding-bottom: 10px;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 
 #dailyMoonriseContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 17vh;
   background: rgb(79, 54, 236);
   background: linear-gradient(
     22deg,
@@ -139,6 +150,7 @@
     rgba(58, 51, 101, 1) 55%,
     rgba(0, 0, 0, 1) 100%
   );
+  border-radius: 20px;
 }
 
 #dailyMoonriseImage {
@@ -147,7 +159,7 @@
 }
 
 #dailyMoonriseTitle {
-  height: 3vh;
+  height: 2vh;
   color: white;
   font-size: 3vh;
 }
@@ -156,14 +168,14 @@
   height: 3vh;
   color: white;
   padding-bottom: 10px;
-  font-size: 3vh;
+  font-size: 2.5vh;
 }
 
 #dailyMoonsetContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20vh;
+  height: 17vh;
   background: rgb(58, 51, 101);
   background: linear-gradient(
     335deg,
@@ -171,6 +183,7 @@
     rgba(19, 17, 33, 1) 78%,
     rgba(0, 0, 0, 1) 98%
   );
+  border-radius: 20px;
 }
 
 #dailyMoonsetImage {
@@ -179,14 +192,14 @@
 }
 
 #dailyMoonsetTitle {
-  height: 3vh;
+  height: 2vh;
   font-size: 3vh;
   color: white;
 }
 
 #dailyMoonsetTime {
   height: 3vh;
-  font-size: 3vh;
+  font-size: 2.5vh;
   color: white;
   padding-bottom: 10px;
 }
