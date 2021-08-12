@@ -14,6 +14,8 @@ class HourlyWeather extends Component {
     this.hourConverter = this.hourConverter.bind(this)
     this.addZeroToTemp = this.addZeroToTemp.bind(this)
     this.rainPercentageToColor = this.rainPercentageToColor.bind(this)
+    this.tempType = this.tempType.bind(this)
+    this.tempTypeIcon = this.tempTypeIcon.bind(this)
   }
 
   getMonth(num){
@@ -86,6 +88,22 @@ class HourlyWeather extends Component {
     return result;
   }
 
+  tempType(type, hour){
+    if(type === "f"){
+      return this.addZeroToTemp(hour.temp_f)
+    } else {
+      return this.addZeroToTemp(hour.temp_c)
+    }
+  }
+
+  tempTypeIcon(type){
+    if(type === "f"){
+      return "°F"
+    } else {
+      return "°C"
+    }
+  }
+
   mapHourly(arr) {
     return (
       <div>
@@ -102,8 +120,8 @@ class HourlyWeather extends Component {
                         <Card.Body id="HourImage" className="alignCenter"> 
                           <Image src={hours.condition.icon} roundedCircle id="HourImageIcon" className="alignCenter"/>
                         </Card.Body>
-                        <Card.Body id="hourTemp" className="alignCenter">{this.addZeroToTemp(hours.temp_f)}</Card.Body>
-                        <Card.Body id="hourTempType" className="alignCenter">°F</Card.Body>
+                        <Card.Body id="hourTemp" className="alignCenter">{this.tempType(this.props.tempType, hours)}</Card.Body>
+                        <Card.Body id="hourTempType" className="alignCenter">{this.tempTypeIcon(this.props.tempType)}</Card.Body>
                         <Card.Body id="hourWeatherCondition" className="alignCenter"> {hours.condition.text}</Card.Body>
                         <Card.Body id={this.rainPercentageToColor(hours.chance_of_rain)} className="alignCenter" >{hours.chance_of_rain}% Chance of Rain</Card.Body>
                       </Card>
@@ -136,6 +154,7 @@ const mapState = (state) => {
     current: state.landingPage.current,
     location: state.landingPage.location,
     forecast: state.landingPage.forecast,
+    tempType: state.landingPage.tempType,
   };
 };
 

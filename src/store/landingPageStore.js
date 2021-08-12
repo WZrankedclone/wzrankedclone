@@ -4,6 +4,7 @@ import axios from "axios";
 const SET_SEARCH = "SET_SEARCH";
 const SET_DATA = "SET_DATA";
 const SET_VIEW = "SET_VIEW";
+const SET_TEMP_TYPE = "SET_TEMP_TYPE "
 
 // ACTION CREATORS - function that changes state
 export const setSearch = (sVal) => {
@@ -36,6 +37,10 @@ export const setView = (view) => ({
   view,
 });
 
+export const setTempType = () => ({
+  type: SET_TEMP_TYPE,
+})
+
 // THUNK CREATORS
 export const fetchData = (dVal) => {
   return async (dispatch) => {
@@ -64,6 +69,7 @@ const initialState = {
   location: {},
   forecast: [],
   view: "Daily",
+  tempType: "f",
 };
 
 // REDUCER
@@ -86,6 +92,18 @@ export default function (state = initialState, action) {
         ...state,
         view: action.view,
       };
+    case SET_TEMP_TYPE:
+      if(state.tempType=== "f"){
+        return {
+          ...state,
+          tempType:"c"
+        }
+      } else {
+        return{
+          ...state,
+          tempType:"f"
+        }
+      }
     default:
       return state;
   }

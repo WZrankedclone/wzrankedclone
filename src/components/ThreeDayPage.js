@@ -7,11 +7,22 @@ import "./styles/LandingPage.css";
 class ThreeDayPage extends Component {
   constructor() {
     super();
+    this.tempType = this.tempType.bind(this)
   }
+
+  tempType(type, prop){
+    if(type === "f"){
+      return prop.maxtemp_f
+    } else {
+      return prop.maxtemp_c
+    }
+  }
+
   render() {
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
+    
     return (
       <div>
         <Row>
@@ -22,7 +33,7 @@ class ThreeDayPage extends Component {
                   <Row>
                     <Col>
                       <Card.Body>{day.date}</Card.Body>
-                      <Card.Body>{day.day.maxtemp_f}</Card.Body>
+                      <Card.Body>{this.tempType(this.props.tempType, day.day)}</Card.Body>
                     </Col>
                     <Col>
                       <Image src={day.day.condition.icon} roundedCircle />
@@ -70,6 +81,7 @@ const mapState = (state) => {
     current: state.landingPage.current,
     location: state.landingPage.location,
     forecast: state.landingPage.forecast,
+    tempType: state.landingPage.tempType,
   };
 };
 export default connect(mapState, null)(ThreeDayPage);
