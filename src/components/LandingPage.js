@@ -4,14 +4,6 @@ import { setSearch } from "../store/landingPageStore";
 import { connect } from "react-redux";
 import "./styles/LandingPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  Card,
-  Button,
-  InputGroup,
-  Form,
-  FormControl,
-  Dropdown,
-} from "react-bootstrap";
 
 class LandingPage extends Component {
   constructor() {

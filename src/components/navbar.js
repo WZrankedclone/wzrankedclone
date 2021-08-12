@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Navbar,
-  Nav,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { setSearch, fetchData } from "../store/landingPageStore";
 import { connect } from "react-redux";
+import "./styles/Navbar.css";
 
 class NavbarPage extends Component {
   constructor() {
@@ -22,34 +14,41 @@ class NavbarPage extends Component {
     this.props.setSearch(e.target.value);
   }
 
+  clearForm() {
+    document.getElementById("navbarSearch").value = "";
+  }
+
   async handleClick(e) {
-    e.preventDefault()
+    e.preventDefault();
     this.props.fetchData(this.props.searchValue);
-    
+    this.clearForm();
   }
 
   render() {
     return (
-      <div>
-        <Navbar bg="light" variant="light">
-          <Container>
-            <Navbar.Brand href="/">TBD</Navbar.Brand>
-            <Nav className="me-auto">
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="mr-2"
-                  aria-label="Search"
-                  onChange={this.handleChange}
-                />
-                <Button variant="outline-success" onClick={this.handleClick}>
-                  Search
-                </Button>
-              </Form>
-            </Nav>
-          </Container>
-        </Navbar>
+      <div id="navbar">
+        <a id="navbarLogo" href="/">
+          TBD-Logo
+        </a>
+        <form id="navbarForm">
+          <input
+            id="navbarSearch"
+            type="text"
+            placeholder="Search City"
+            autocomplete="off"
+            onChange={this.handleChange}
+          />
+          <button id="navbarButton" type="submit" onClick={this.handleClick}>
+            <img
+              id="navbarIcon"
+              src="/images/icons8-search-60.png"
+              alt="search icon"
+            />
+          </button>
+        </form>
+        <a id="navbarAbout" href="/about">
+          About Us
+        </a>
       </div>
     );
   }

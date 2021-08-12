@@ -1,0 +1,40 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gray;
+  height: 5em;
+  padding: 0em 4.5em;
+}
+
+#navbarForm {
+  display: flex;
+  width: 20em;
+  padding: 5px 6px;
+  border: 0;
+  border-radius: 20px;
+  background-color: lightgray;
+  justify-content: space-between;
+}
+
+#navbarSearch {
+  border: 0;
+  text-align: center;
+  outline: none;
+  background-color: lightgray;
+  width: 250px;
+  padding-left: 55px;
+  border-radius: 20px;
+}
+
+#navbarButton {
+  border: 0;
+  background-color: lightgray;
+  margin-left: 20px;
+  border-radius: 20px;
+}
+
+#navbarIcon {
+  width: 30px;
+  height: 30px;
+}
