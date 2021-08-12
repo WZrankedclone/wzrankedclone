@@ -7,6 +7,7 @@ class DailyWeather extends Component {
   constructor() {
     super();
     this.removeZero = this.removeZero.bind(this);
+    this.tempType = this.tempType.bind(this);
   }
 
   removeZero(time) {
@@ -16,11 +17,18 @@ class DailyWeather extends Component {
     return time;
   }
 
+  tempType(type){
+    if(type === "f"){
+      return this.props.current.temp_f
+    } else {
+      return this.props.current.temp_c
+    }
+  }
+
   render() {
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
-    console.log(this.props);
     return (
       <div>
         <Container>
@@ -31,7 +39,7 @@ class DailyWeather extends Component {
                   {this.props.location.name}
                 </Card.Body>
                 <Card.Body id="dailyTemp">
-                  {this.props.current.temp_f}°
+                  {this.tempType(this.props.tempType)}°
                 </Card.Body>
                 <Card.Body id="dailyCondition">
                   {this.props.current.condition.text}
@@ -115,6 +123,7 @@ const mapState = (state) => {
     current: state.landingPage.current,
     location: state.landingPage.location,
     forecast: state.landingPage.forecast,
+    tempType: state.landingPage.tempType,
   };
 };
 

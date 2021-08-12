@@ -5,7 +5,7 @@ import DailyWeather from "./DailyWeather";
 import HourlyWeather from "./HourlyWeather";
 import ThreeDayPage from "./ThreeDayPage";
 import NavbarPage from "./navbar";
-import { fetchData, setView } from "../store/landingPageStore";
+import { fetchData, setView, setTempType} from "../store/landingPageStore";
 import { Card, Container, Row, Button, Col } from "react-bootstrap";
 import "./styles/WeatherPage.css";
 
@@ -20,6 +20,7 @@ class WeatherPage extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.onHide = this.onHide.bind(this);
+    this.handleChangeTemp = this.handleChangeTemp.bind(this);
   }
 
   componentDidMount() {
@@ -49,48 +50,48 @@ class WeatherPage extends Component {
     );
   }
 
+  handleChangeTemp(){
+    this.props.setTempType()
+  }
+
   render() {
-    console.log(1111, this.state);
     if (this.props.forecast.length === 0) {
       return <div>loading</div>;
     }
     return (
       <div className="mainpage">
         <NavbarPage />
-        <Container>
-          <Row>
-            <Col xs={14} md={10}>
-              <div className="weatherContainer">
-                {this.props.view === "Daily" ? (
-                  <div style={{ ...styles, opacity: this.state.opacity }}>
-                    <DailyWeather />
-                  </div>
-                ) : this.props.view === "Hourly" ? (
-                  <div style={{ ...styles, opacity: this.state.opacity }}>
-                    <HourlyWeather />
-                  </div>
-                ) : (
-                  <div style={{ ...styles, opacity: this.state.opacity }}>
-                    <ThreeDayPage />
-                  </div>
-                )}
-              </div>
-            </Col>
-            <Col xs={4} md={2}>
-              <Card>
-                <Button className="Daily" onClick={this.handleClick}>
-                  Daily
-                </Button>
-                <Button className="ThreeDay" onClick={this.handleClick}>
-                  Three Day
-                </Button>
-                <Button className="Hourly" onClick={this.handleClick}>
-                  Hourly
-                </Button>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+        <div className="buttonBar">
+          <button className="weatherButton" onClick={this.handleClick}>
+            Daily
+          </button>
+          <button className="weatherButton" onClick={this.handleClick}>
+            Three Day
+          </button>
+          <button className="weatherButton" onClick={this.handleClick}>
+            Hourly
+          </button>
+          <label className="switch">
+            <input className="switch-input" type="checkbox" onChange={this.handleChangeTemp}/>
+            <span className="switch-label" data-on="C" data-off="F"></span>
+            <span className="switch-handle"></span>
+          </label>
+        </div>
+        <div className="weatherContainer">
+          {this.props.view === "Daily" ? (
+            <div style={{ ...styles, opacity: this.state.opacity }}>
+              <DailyWeather />
+            </div>
+          ) : this.props.view === "Hourly" ? (
+            <div style={{ ...styles, opacity: this.state.opacity }}>
+              <HourlyWeather />
+            </div>
+          ) : (
+            <div style={{ ...styles, opacity: this.state.opacity }}>
+              <ThreeDayPage />
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -110,6 +111,9 @@ const mapDispatch = (dispatch) => {
     },
     setView: (view) => {
       dispatch(setView(view));
+    },
+    setTempType: () => {
+      dispatch(setTempType());
     },
   };
 };
