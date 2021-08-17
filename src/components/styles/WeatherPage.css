@@ -1,8 +1,15 @@
-
+#loading {
+  width: 300px;
+  height: 300px;
+  background-image: url("https://image.shutterstock.com/image-vector/cute-earth-environmental-mascot-design-260nw-1880965264.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
 .weatherContainer {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: stretch;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -11,17 +18,17 @@
   flex-direction: column;
 }
 
-.buttonBar{
+.buttonBar {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   background-color: rgb(82, 81, 81);
   height: 45px;
   padding: 0px 5.1vw;
 }
 
-.weatherButton{
+.weatherButton {
   background-color: rgb(82, 81, 81);
-  color:white;
+  color: white;
   border: 2px solid rgb(82, 81, 81);
   padding: 0px 10px;
   font-weight: bold;
@@ -29,112 +36,123 @@
 
 .weatherButton:hover {
   background-color: rgb(82, 81, 81);
-  color:white;
+  color: white;
   border-bottom: 2px solid rgb(224, 224, 224);
 }
 
 .switch {
-	position: relative;
-	display: block;
-	width: 46px;
-	height: 23px;
-	padding: 3px;
-	margin: 8px;
-	background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
-	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
-	border-radius: 18px;
-	box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
-	cursor: pointer;
-	box-sizing:content-box;
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 23px;
+  padding: 3px;
+  margin: 8px;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff 25px);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff 25px);
+  border-radius: 18px;
+  box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  box-sizing: content-box;
 }
 .switch-input {
-	position: absolute;
-	top: 0;
-	left: 0;
-	opacity: 0;
-	box-sizing:content-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  box-sizing: content-box;
 }
-.switch-label { /* Color of Right space */
-	position: relative;
-	display: block;
-	height: inherit;
-	font-size: 10px;
-	text-transform: uppercase;
-	background: #f5f5f5;
-	border-radius: inherit;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-	box-sizing:content-box;
+.switch-label {
+  /* Color of Right space */
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #f5f5f5;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12),
+    inset 0 0 2px rgba(0, 0, 0, 0.15);
+  box-sizing: content-box;
 }
-.switch-label:before, .switch-label:after {
-	position: absolute;
-	top: 50%;
-	margin-top: -.5em;
-	line-height: 1;
-	-webkit-transition: inherit;
-	-moz-transition: inherit;
-	-o-transition: inherit;
-	transition: inherit;
-	box-sizing:content-box;
+.switch-label:before,
+.switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+  box-sizing: content-box;
 }
-.switch-label:before { /* Color of Right text */
-	content: attr(data-off);
-	right: 11px;
-	color: #aaaaaa;
-	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+.switch-label:before {
+  /* Color of Right text */
+  content: attr(data-off);
+  right: 11px;
+  color: #aaaaaa;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.5);
   font-weight: bolder;
 }
-.switch-label:after { /* Color of Left text */
-	content: attr(data-on);
-	left: 11px;
-	color: #FFFFFF;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
-	opacity: 0;
+.switch-label:after {
+  /* Color of Left text */
+  content: attr(data-on);
+  left: 11px;
+  color: #ffffff;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
   font-weight: bolder;
 }
-.switch-input:checked ~ .switch-label { /* Color of left space */
-	background: #d1d1d1;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+.switch-input:checked ~ .switch-label {
+  /* Color of left space */
+  background: #d1d1d1;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 0 3px rgba(0, 0, 0, 0.2);
 }
 .switch-input:checked ~ .switch-label:before {
-	opacity: 0;
+  opacity: 0;
 }
 .switch-input:checked ~ .switch-label:after {
-	opacity: 1;
+  opacity: 1;
 }
-.switch-handle { /* circle toggle slider*/
-	position: absolute;
-	top: 4px;
-	left: 4px;
-	width: 21px;
-	height: 21px;
-	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
-	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
-	border-radius: 100%;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+.switch-handle {
+  /* circle toggle slider*/
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 21px;
+  height: 21px;
+  background: linear-gradient(to bottom, #ffffff 40%, #f0f0f0);
+  background-image: -webkit-linear-gradient(top, #ffffff 40%, #f0f0f0);
+  border-radius: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
-.switch-handle:before { /* circle in circle toggle slider */
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -6px 0 0 -6px;
-	width: 12px;
-	height: 12px;
-	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
-	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
-	border-radius: 6px;
-	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+.switch-handle:before {
+  /* circle in circle toggle slider */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -6px;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(to bottom, #eeeeee, #ffffff);
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff);
+  border-radius: 6px;
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
-.switch-input:checked ~ .switch-handle { /* How much it shifts right after click*/
-	left: 27px;
-	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+.switch-input:checked ~ .switch-handle {
+  /* How much it shifts right after click*/
+  left: 27px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
 }
- 
+
 /* Transition
 ========================== */
-.switch-label, .switch-handle {
-	transition: All 0.3s ease;
-	-webkit-transition: All 0.3s ease;
-	-moz-transition: All 0.3s ease;
-	-o-transition: All 0.3s ease;
+.switch-label,
+.switch-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
 }

@@ -5,8 +5,7 @@ import DailyWeather from "./DailyWeather";
 import HourlyWeather from "./HourlyWeather";
 import ThreeDayPage from "./ThreeDayPage";
 import NavbarPage from "./navbar";
-import { fetchData, setView, setTempType} from "../store/landingPageStore";
-import { Card, Container, Row, Button, Col } from "react-bootstrap";
+import { fetchData, setView, setTempType } from "../store/landingPageStore";
 import "./styles/WeatherPage.css";
 
 const styles = {
@@ -35,7 +34,7 @@ class WeatherPage extends Component {
 
   async handleClick(e) {
     e.preventDefault();
-    await this.onHide();
+    this.onHide();
     setTimeout(
       function () {
         this.props.setView(e.target.innerHTML);
@@ -50,13 +49,17 @@ class WeatherPage extends Component {
     );
   }
 
-  handleChangeTemp(){
-    this.props.setTempType()
+  handleLoad() {
+    setTimeout(function () {});
+  }
+
+  handleChangeTemp() {
+    this.props.setTempType();
   }
 
   render() {
     if (this.props.forecast.length === 0) {
-      return <div>loading</div>;
+      return <div id="loading">LOADING...</div>;
     }
     return (
       <div className="mainpage">
@@ -72,7 +75,11 @@ class WeatherPage extends Component {
             Hourly
           </button>
           <label className="switch">
-            <input className="switch-input" type="checkbox" onChange={this.handleChangeTemp}/>
+            <input
+              className="switch-input"
+              type="checkbox"
+              onChange={this.handleChangeTemp}
+            />
             <span className="switch-label" data-on="C" data-off="F"></span>
             <span className="switch-handle"></span>
           </label>
